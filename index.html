@@ -10,12 +10,25 @@
             scroll-behavior: smooth;
         }
 
+        /* ===== ẨN SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        html {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
+            background-attachment: fixed;
         }
+
+        
 
         /* ===== HEADER ===== */
         header {
@@ -28,6 +41,7 @@
             position: fixed;
             top: 0;
             width: 100%;
+            box-sizing: border-box;
             z-index: 1000;
         }
 
@@ -42,6 +56,12 @@
             margin-left: 20px;
             font-weight: bold;
             padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            transform: translateY(-3px);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
         nav a.active {
@@ -77,6 +97,12 @@
 
         h2 {
             color: #b30000;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.8;
         }
 
         .food-item {
@@ -85,6 +111,7 @@
 
         .food-item h3 {
             color: #800000;
+            font-size: 18px;
         }
 
         /* ===== FOOTER ===== */
@@ -128,10 +155,14 @@
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    transform: scale(1);
 }
 
 .feedback button:hover {
     background: #800000;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(179, 0, 0, 0.3);
 }
 .intro {
   display: flex;
@@ -157,6 +188,13 @@
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   text-align: center;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.food-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 .food-card img {
@@ -167,7 +205,7 @@
 .banner {
   position: relative;
     height: 420px;
-    background: url("thanhhoa.jpg") center/cover no-repeat;
+    background: url("ảnh/thanhhoa.jpg") center/cover no-repeat;
     display: flex;
     align-items: flex-end;   /* đẩy chữ xuống dưới */
     justify-content: center;
@@ -185,6 +223,18 @@
 
     border-radius: 14px;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -198,8 +248,7 @@
     <h1>Bếp Xứ Thanh</h1>
     <nav>
         <a href="#trang-chu" class="nav-link">Trang chủ</a>
-        <a href="#gioi-thieu" class="nav-link">Giới thiệu</a>
-        <a href="#dac-san" class="nav-link">Mục lục</a>
+       
         <a href="#lien-he" class="nav-link">Liên hệ</a>
     </nav>
 </header>
@@ -231,7 +280,7 @@
 </p> 
 <section class="foods">
   <div class="food-card">
-    <img src="banhkhoai.jpg" alt="Bánh khoái Thanh Hóa">
+    <img src="ảnh/banhkhoai.jpg" alt="Bánh khoái Thanh Hóa">
   </section>
     </div>
 
@@ -242,7 +291,7 @@ Gỏi cá được ăn cùng với lá chanh, lá sung, húng, tía tô. Cách �
 .</p>
 <section class="foods">
   <div class="food-card">
-    <img src="cheonhech.jpg" alt="Chẻo nhệch Thanh Hóa">
+    <img src="ảnh/cheonhech.jpg" alt="Chẻo nhệch Thanh Hóa">
   </section>
     </div>
 
@@ -253,7 +302,7 @@ Thanh chè lam màu vàng ươm đẹp mắt. Nếu vừa ăn chè lam vừa nh�
 </p>
 <section class="foods">
   <div class="food-card">
-    <img src="chelam.jpg" alt="Chè lam Phủ Quảng">
+    <img src="ảnh/chelam.jpg" alt="Chè lam Phủ Quảng">
   </section>
     </div>
 
@@ -264,7 +313,7 @@ Mắm tép ăn đúng điệu là khi chưng chín với mỡ hành, đảo đ�
 </p>
 <section class="foods">
   <div class="food-card">
-    <img src="mamtep.jpg" alt="Mắm tép Thanh Hóa">
+    <img src="ảnh/mamtep.jpg" alt="Mắm tép Thanh Hóa">
   </section>
     </div>
 
@@ -274,7 +323,7 @@ Mắm tép ăn đúng điệu là khi chưng chín với mỡ hành, đảo đ�
 </p>
 <section class="foods">
   <div class="food-card">
-    <img src="buoi.jpg" alt="Bưởi tiến vua Thanh Hóa">
+    <img src="ảnh/buoi.jpg" alt="Bưởi tiến vua Thanh Hóa">
   </section>
     </div>
 
@@ -285,7 +334,7 @@ Nem được cuốn bằng nhiều lớp lá chuối khác nhau, phần thịt b
 </p>
 <section class="foods">
   <div class="food-card">
-    <img src="nemchua.jpg" alt="Nem chua Thanh Hóa">
+    <img src="ảnh/nemchua.jpg" alt="Nem chua Thanh Hóa">
   </section>
     </div>
 
@@ -296,7 +345,7 @@ Món canh mang vị đắng tê tê rất thu hút, sau một vài muỗng quen 
 </p> 
 <section class="foods">
   <div class="food-card">
-    <img src="canh.jpg" alt="Canh lá đắng Thanh Hóa">
+    <img src="ảnh/canh.jpg" alt="Canh lá đắng Thanh Hóa">
   </section>
     </div>
 
@@ -307,7 +356,7 @@ Nem được dùng thịt lợn, thính, bì và lá đinh lăng, gói trong lá
 </p>
 <section class="foods">
   <div class="food-card">
-    <img src="nemnuong.jpg" alt="Nem nướng Thanh Hóa">
+    <img src="ảnh/nemnuong.jpg" alt="Nem nướng Thanh Hóa">
   </section>
     </div>
 
@@ -317,7 +366,7 @@ Nem được dùng thịt lợn, thính, bì và lá đinh lăng, gói trong lá
 </p>
 <section class="foods">
   <div class="food-card">
-    <img src="banhcuon.jpg" alt="Bánh cuốn Thanh Hóa">
+    <img src="ảnh/banhcuon.webp" alt="Bánh cuốn Thanh Hóa">
   </section>
     </div>
 
@@ -327,7 +376,7 @@ Nem được dùng thịt lợn, thính, bì và lá đinh lăng, gói trong lá
 </p>
 <section class="foods">
   <div class="food-card">
-    <img src="banhda.jpg" alt="Bánh đa Minh Châu Thanh Hóa">
+    <img src="ảnh/banhda.jpg" alt="Bánh đa Minh Châu Thanh Hóa">
   </section>
     </div>
 </div>
@@ -338,16 +387,17 @@ Nem được dùng thịt lợn, thính, bì và lá đinh lăng, gói trong lá
         ẩm thực Thanh Hóa ngày càng được giới thiệu tốt hơn.
     </p>
 
-    <form action="https://formsubmit.co/bao9athcsks@gmail.com" method="POST">
-  <input type="text" name="name" placeholder="Họ tên" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <textarea name="message" placeholder="Nội dung" required></textarea>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="0016f431-c3db-426d-a58d-9500ec665fdb">
+        
+        <input type="text" name="name" placeholder="Tên của bạn..." required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px;">
+        
+        <input type="email" name="email" placeholder="Email của bạn..." required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; box-sizing: border-box;">
+        
+        <textarea name="message" placeholder="Nhập ý kiến của bạn..." required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; box-sizing: border-box;"></textarea>
 
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="thankyou.html">
-
-  <button type="submit">Gửi</button>
-</form>
+        <button type="submit">Gửi phản hồi</button>
+    </form>
 </div>
 
 
@@ -356,9 +406,74 @@ Nem được dùng thịt lợn, thính, bì và lá đinh lăng, gói trong lá
     <p>Email: bepxuthanh@gmail.com | Hotline: 0824242424</p>
 </footer>
 
+<script>
+// Hiệu ứng fade-in khi scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
 
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Thêm animation cho food-item
+document.querySelectorAll('.food-item').forEach(item => {
+    item.style.opacity = '0';
+    observer.observe(item);
+});
+
+// Thêm CSS animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Hiệu ứng hover cho food-card
+document.querySelectorAll('.food-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px)';
+    });
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
+
+// Active nav link based on scroll
+window.addEventListener('scroll', function() {
+    let current = '';
+    const sections = document.querySelectorAll('section, #trang-chu, #gioi-thieu, #dac-san, #gop-y, #lien-he');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    document.querySelectorAll('nav a').forEach(link => {
+        link.classList.remove('active');
+        if(link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
-
-
